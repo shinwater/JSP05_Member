@@ -90,7 +90,7 @@
 			<% } %>
 			<tr>
 				<td colspan="2" align="center">
-					<a href="<%=request.getContextPath() %>/update.do?">[수정]</a><!--  -->
+					<a href="<%=request.getContextPath() %>/update.do?memId=<%=cont.getId()%>">[수정]</a><!--  -->
 					<!-- 뭐 데이터가 많이 넘어오는게 아니라 글번호만 받으면되니까 그냥 jsp페이지로 넘겨버려야징.. 
 						다른것도 넘겨줘도 되는데 ! 유지보수엔 좋지않앗 -->
 					<a href="board_delete.jsp?">[삭제]</a>
