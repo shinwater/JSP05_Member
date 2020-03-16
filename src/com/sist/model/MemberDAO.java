@@ -148,5 +148,28 @@ public class MemberDAO {
 		return vo;
 	}//contMember() 메서드 end
 
-	
+	//member1테이블의 아이디에 해당하는 컬럼들을 수정하는 메서드
+	public int updateMember(MemberVO vo) {
+		int result = 0;
+		
+		try {
+			openConn();
+			sql = "update member1 set tel=?, addr=?, email=?, age=? where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getTel());
+			pstmt.setString(2, vo.getAddr());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setInt(4, vo.getAge());
+			pstmt.setString(5, vo.getId());
+			result = pstmt.executeUpdate();
+			
+			//open 객체닫기
+			pstmt.close(); con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+				
+	}//updateMember() 메서드 end
 }
